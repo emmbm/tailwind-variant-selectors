@@ -1,8 +1,8 @@
 # PostCSS Tailwind Variant Selectors
 
-Maybe cursed 🤮, maybe not 🤩, easily use your custom Tailwind CSS `@variant`s in CSS with. Useful
-to maintain consistency across your custom `@component` or global styles and inline classes without
-relying on `@apply`-ridden stylesheets.
+Maybe cursed 🤮, maybe not 🤩, easily use your custom Tailwind CSS `@variant`s in CSS. Useful to
+maintain consistency across inline class variants and custom `@component`s or global styles without
+relying on `@apply`-ridden stylesheets for the latter.
 
 ```css
 @variant hocus (&:hover, &:focus);
