@@ -1,6 +1,6 @@
 {
 	"name": "postcss-tailwind-variant-selectors",
-	"version": "0.0.1",
+	"version": "0.0.0-development",
 	"description": "PostCSS plugin to use your Tailwind CSS custom variants in CSS.",
 	"keywords": [
 		"postcss",
@@ -16,8 +16,7 @@
 		"test": "node --test",
 		"test:rewrite": "REWRITE_EXPECTS=true node --test",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"release": "semantic-release"
+		"format": "prettier --write ."
 	},
 	"author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
 	"license": "MIT",
