@@ -1,33 +1,43 @@
 {
-  "name": "postcss-tailwind-variant-selectors",
-  "version": "0.0.0",
-  "description": "PostCSS plugin to use your Tailwind CSS custom variants in CSS.",
-  "keywords": ["postcss", "css", "postcss-plugin", "postcss-tailwind-variant-selectors"],
-  "scripts": {
-    "unit": "node --test index.test.js",
-    "test": "npm run unit && eslint ."
-  },
-  "author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
-  "license": "MIT",
-  "repository": "emmbm/postcss-tailwind-variant-selectors",
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "peerDependencies": {
-    "postcss": "^8.4.27"
-  },
-  "devDependencies": {
-    "eslint": "^8.47.0",
-    "postcss": "^8.4.27"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2017
-    },
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "extends": ["eslint:recommended"]
-  }
+	"name": "postcss-tailwind-variant-selectors",
+	"version": "0.0.1",
+	"description": "PostCSS plugin to use your Tailwind CSS custom variants in CSS.",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"tailwind",
+		"tailwindcss",
+		"variant",
+		"selector",
+		"postcss-tailwind-variant-selectors"
+	],
+	"scripts": {
+		"test": "node --test",
+		"test:rewrite": "REWRITE_EXPECTS=true node --test",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"prepublish": "npm run test && npm run lint && && npm run format"
+	},
+	"author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
+	"license": "MIT",
+	"repository": "emmbm/postcss-tailwind-variant-selectors",
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.27",
+		"tailwindcss": "^4.0.0"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "^5.0.0",
+		"@tailwindcss/postcss": "4.0.0-beta.2",
+		"eslint": "^9.15.0",
+		"eslint-config-prettier": "^9.1.0",
+		"postcss": "^8.4.49",
+		"prettier": "^3.3.3",
+		"prettier-plugin-jsdoc": "^1.3.0",
+		"prettier-plugin-tailwindcss": "^0.6.9",
+		"tailwindcss": "4.0.0-beta.2"
+	}
 }

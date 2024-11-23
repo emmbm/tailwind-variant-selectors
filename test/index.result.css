@@ -1,0 +1,39 @@
+/* Basic */
+@variant hocus (&:hover, &:focus);
+
+/* Complex */
+@variant disabled (&:disabled, &[aria-disabled='true'], &[data-disabled='true'], &:is(a):not(:any-link));
+
+/* Invalid */
+@variant inputfx (&::after);
+
+@layer components {
+  .btn {
+    position: relative;
+    border-radius: 0.5em;
+    height: 2.5em;
+    padding-inline: 1em;
+    color: teal;
+
+    &:is(:disabled, [aria-disabled='true'], [data-disabled='true'], :is(a):not(:any-link)) {
+      color: dimgrey;
+      opacity: 0.5;
+    }
+
+    &:is(:hover, :focus) {
+      color: blue;
+      &:is(::after) {
+        opacity: 0.2;
+      }
+    }
+
+    &:is(::after) {
+      content: '';
+      inset: 0;
+      position: absolute;
+      opacity: 0.1;
+      background: teal;
+      border-radius: inherit;
+    }
+  }
+}
