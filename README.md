@@ -15,6 +15,43 @@ relying on `@apply`-ridden stylesheets.
 }
 ```
 
+## Usage
+
+```bash
+pnpm add -D postcss-tailwind-variant-selectors
+```
+
+Then add the plugin to your project's PostCSS config:
+
+Using a standalone config file...
+
+```js
+// postcss.config.js
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {},
+    'postcss-tailwind-variant-selectors': { files: ['./src/styles/variants.css'] }
+  }
+};
+```
+
+Or within your bundler's config...
+
+```ts
+// vite.config.ts
+import variants from 'postcss-tailwind-variant-selectors';
+
+export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [variants({ files: ['./src/styles/variants.css'] })]
+    }
+  },
+  plugins: [tailwindcss()]
+  // ...
+});
+```
+
 ## Constraints
 
 ### Pseudo-elements
