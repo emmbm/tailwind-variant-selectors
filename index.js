@@ -1,8 +1,6 @@
 import { readFileSync } from 'fs';
 import { parse } from 'postcss';
 
-const PLUGIN_NAME = 'postcss-tailwind-variant-selectors';
-
 /**
  * @typedef {object} Options
  * @property {string[]} files Path to file(s) containing the `@variant` declarations.
@@ -32,7 +30,7 @@ const plugin = ({ files = [] } = {}) => {
    */
   const variants = new Map();
   return {
-    postcssPlugin: PLUGIN_NAME,
+    postcssPlugin: 'postcss-tailwind-variant-selectors',
     Once(root, { result }) {
       for (const file of files) {
         const content = readFileSync(file, 'utf-8');
