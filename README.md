@@ -56,6 +56,17 @@ export default defineConfig({
 
 ### Pseudo-elements
 
-Since variant selectors are wrapped with `:is()`, any pseudo-elements inside your variants (ex.:
-`@variant pseudo (&::after, &[data-fx-after]::after)`) will result in
+Since variant selectors are wrapped with `:is()`, any pseudo-elements inside your variants will
+result in
 [unmatchable CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/:is#is_does_not_select_pseudo-elements).
+
+Ex.:
+
+```css
+@variant fx (&::after);
+
+/* This will be transformed to ".btn:is(::after)", which is not a matchable selector. */
+.btn:variant(fx) {
+  /* ... */
+}
+```
