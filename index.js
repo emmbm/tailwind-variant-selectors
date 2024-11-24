@@ -30,7 +30,7 @@ const plugin = ({ files = [] } = {}) => {
    */
   const variants = new Map();
   return {
-    postcssPlugin: 'postcss-tailwind-variant-selectors',
+    postcssPlugin: 'postcss-tailwind-variants',
     Once(root, { result }) {
       for (const file of files) {
         const content = readFileSync(file, 'utf-8');

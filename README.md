@@ -18,7 +18,7 @@ relying on `@apply`-ridden stylesheets for the latter.
 ## Usage
 
 ```bash
-pnpm add -D postcss-tailwind-variant-selectors
+pnpm add -D postcss-tailwind-variants
 ```
 
 Then add the plugin to your project's PostCSS config:
@@ -30,7 +30,7 @@ Using a standalone config file...
 export default {
   plugins: {
     '@tailwindcss/postcss': {},
-    'postcss-tailwind-variant-selectors': { files: ['./src/styles/variants.css'] }
+    'postcss-tailwind-variants': { files: ['./src/styles/variants.css'] }
   }
 };
 ```
@@ -39,7 +39,7 @@ Or within your bundler's config...
 
 ```ts
 // vite.config.ts
-import variants from 'postcss-tailwind-variant-selectors';
+import variants from 'postcss-tailwind-variants';
 
 export default defineConfig({
   css: {

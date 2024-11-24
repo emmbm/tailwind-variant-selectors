@@ -1,5 +1,5 @@
 {
-	"name": "postcss-tailwind-variant-selectors",
+	"name": "postcss-tailwind-variants",
 	"version": "0.0.0-development",
 	"description": "PostCSS plugin to use your Tailwind CSS custom variants in CSS.",
 	"keywords": [
@@ -9,8 +9,8 @@
 		"tailwind",
 		"tailwindcss",
 		"variant",
-		"selector",
-		"postcss-tailwind-variant-selectors"
+		"tailwind-variants",
+		"custom-selectors"
 	],
 	"scripts": {
 		"test": "node --test",
@@ -21,7 +21,7 @@
 	},
 	"author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
 	"license": "MIT",
-	"repository": "emmbm/postcss-tailwind-variant-selectors",
+	"repository": "emmbm/postcss-tailwind-variants",
 	"engines": {
 		"node": ">=18.0.0"
 	},
