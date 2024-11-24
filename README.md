@@ -9,6 +9,7 @@ relying on `@apply`-ridden stylesheets for the latter.
 
 .btn {
   color: var(--color-input);
+
   &:variant(hocus) {
     color: var(--color-input-accent);
   }
