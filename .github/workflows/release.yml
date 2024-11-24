@@ -27,6 +27,7 @@ jobs:
           node-version: 'lts/*'
       - run: npm install
       - run: npm run test
+      - run: npm run emit-types
       - run: npm audit signatures
       - name: Release
         env:

@@ -1,4 +1,4 @@
-# PostCSS Tailwind Variant Selectors
+# PostCSS Tailwind Variants
 
 Maybe cursed 🤮, maybe not 🤩, easily use your custom Tailwind CSS `@variant`s in CSS. Useful to
 maintain consistency across inline class variants and custom `@component`s or global styles without
