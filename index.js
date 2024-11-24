@@ -10,19 +10,18 @@ import { parse } from 'postcss';
  * Use your custom tailwind variants as selectors inside css files without relying on the `@apply`
  * syntax.
  *
+ * @type {import('postcss').PluginCreator<Options>}
  * @example
  *   ```css
  *   ⁣@variant hocus (&:hover, &:focus);
  *
  *   .btn {
  *     color: var(--color-input);
+ *
  *     &:variant(hocus) {
  *       color: var(--color-input-accent);
  *     }
  *   }
- *   ```;
- *
- * @type {import('postcss').PluginCreator<Options>}
  */
 const plugin = ({ files = [] } = {}) => {
   /**
