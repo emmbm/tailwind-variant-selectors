@@ -59,6 +59,7 @@
 	"files": [
 		"README.md",
 		"common/index.js",
+		"common/index.d.ts",
 		"postcss/index.js",
 		"postcss/index.d.ts",
 		"vite/index.js",

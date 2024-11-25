@@ -1,20 +1,19 @@
 import { readFileSync } from 'fs';
 import { dirname, join, resolve } from 'path';
-import { format_selectors } from '../common/index.js';
 import {
   CSS_ENTRY_PATTERN,
   CSS_FILE_PATTERN,
   CSS_IMPORT_PATTERN,
+  format_selectors,
   unamp,
   VARIANT_ATRULE_PATTERN,
   VARIANT_SELECTOR_PATTERN
-} from './common';
+} from '../common/index.js';
 
 /**
  * Use your custom tailwind variants as selectors inside css files without relying on the `@apply`
  * syntax.
  *
- * @type {import('postcss').PluginCreator<Options>}
  * @returns {import('vite').Plugin[]}
  * @example
  *   ```css
