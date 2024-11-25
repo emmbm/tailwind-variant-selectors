@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { parse } from 'postcss';
-import { format_selectors, unamp, VARIANT_SELECTOR_PATTERN } from '../common';
+import { format_selectors, unamp, VARIANT_SELECTOR_PATTERN } from '../common/index.js';
 
 /**
  * @typedef {object} Options
@@ -51,7 +51,7 @@ const plugin = ({ files = [] } = {}) => {
   }
 
   return {
-    postcssPlugin: 'postcss-tailwind-variants',
+    postcssPlugin: 'postcss-tailwind-variant-selectors',
     Rule(rule) {
       if (!rule.selector) {
         return;

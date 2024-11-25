@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { dirname, join, resolve } from 'path';
-import { format_selectors } from '../common';
+import { format_selectors } from '../common/index.js';
 import {
   CSS_ENTRY_PATTERN,
   CSS_FILE_PATTERN,
