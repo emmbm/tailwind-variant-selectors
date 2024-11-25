@@ -1,15 +1,16 @@
 {
-	"name": "postcss-tailwind-variants",
+	"name": "tailwind-variant-selectors",
 	"version": "0.0.0-development",
-	"description": "PostCSS plugin to use your Tailwind CSS custom variants in CSS.",
+	"description": "Use your Tailwind CSS custom variants in CSS.",
 	"keywords": [
 		"postcss",
+		"vite",
 		"css",
 		"postcss-plugin",
+		"vite-plugin",
 		"tailwind",
 		"tailwindcss",
-		"variant",
-		"tailwind-variants",
+		"variants",
 		"custom-selectors"
 	],
 	"scripts": {
@@ -17,11 +18,11 @@
 		"test:rewrite": "REWRITE_EXPECTS=true node --test",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"emit-types": "tsc index.js --declaration --allowJs --emitDeclarationOnly --lib esnext --outDir ."
+		"emit-types": "tsc postcss/index.js vite/index.js --declaration --allowJs --emitDeclarationOnly --lib esnext"
 	},
 	"author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
 	"license": "MIT",
-	"repository": "emmbm/postcss-tailwind-variants",
+	"repository": "emmbm/tailwind-variant-selectors",
 	"engines": {
 		"node": ">=18.0.0"
 	},
@@ -43,9 +44,22 @@
 		"typescript": "^5.7.2"
 	},
 	"files": [
-		"index.js",
-		"index.d.ts",
-		"README.md"
+		"README.md",
+		"common/index.js",
+		"postcss/index.js",
+		"postcss/index.d.ts",
+		"vite/index.js",
+		"vite/index.d.ts"
 	],
-	"types": "index.d.ts"
+	"exports": {
+		"./package.json": "./package.json",
+		"./postcss": {
+			"import": "./postcss/index.js",
+			"types": "./postcss/index.d.ts"
+		},
+		"./vite": {
+			"import": "./vite/index.js",
+			"types": "./vite/index.d.ts"
+		}
+	}
 }

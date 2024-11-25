@@ -1,5 +1,5 @@
 import { postcssTape } from '@csstools/postcss-tape';
-import plugin from '../index.js';
+import plugin from '../postcss/index.js';
 
 postcssTape(plugin)({
   index: {
@@ -9,3 +9,5 @@ postcssTape(plugin)({
     }
   }
 });
+
+// to do: vite plugin tests

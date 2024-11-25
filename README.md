@@ -1,4 +1,4 @@
-# PostCSS Tailwind Variants
+# Tailwind Variant Selectors
 
 Maybe cursed 🤮, maybe not 🤩, easily use your custom Tailwind CSS `@variant`s in CSS. Useful to
 maintain consistency across inline class variants and custom `@component`s or global styles without
@@ -19,37 +19,29 @@ relying on `@apply`-ridden stylesheets for the latter.
 ## Usage
 
 ```bash
-pnpm add -D postcss-tailwind-variants
+pnpm add -D tailwind-variant-selectors
 ```
 
-Then add the plugin to your project's PostCSS config:
-
-Using a standalone config file...
+Then either use the PostCSS plugin...
 
 ```js
 // postcss.config.js
 export default {
   plugins: {
     '@tailwindcss/postcss': {},
-    'postcss-tailwind-variants': { files: ['./src/styles/variants.css'] }
+    'tailwind-variant-selectors/postcss': { files: ['./src/styles/variants.css'] }
   }
 };
 ```
 
-Or within your bundler's config...
+Or the Vite plugin...
 
 ```ts
 // vite.config.ts
-import variants from 'postcss-tailwind-variants';
+import variants from 'tailwind-variant-selectors';
 
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [variants({ files: ['./src/styles/variants.css'] })]
-    }
-  },
-  plugins: [tailwindcss()]
-  // ...
+  plugins: [variants(), tailwindcss()]
 });
 ```
 

@@ -1,22 +1,22 @@
 {
-	"workbench.editor.labelFormat": "short",
-	"editor.formatOnPaste": false,
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": "explicit",
-		"source.fixAll": "explicit"
-	},
-	"markdownlint.config": {
-		"default": true,
-	},
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"editor.quickSuggestions": {
-		"strings": "on"
-	},
-	"tailwindCSS.emmetCompletions": true,
-	"tailwindCSS.lint.invalidConfigPath": "warning",
-	"tailwindCSS.experimental.configFile": "src/app.css"
+  "workbench.editor.labelFormat": "short",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "markdownlint.config": {
+    "default": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.lint.invalidConfigPath": "warning",
+  "tailwindCSS.experimental.configFile": "src/app.css"
 }
