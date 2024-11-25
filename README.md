@@ -38,7 +38,7 @@ Or the Vite plugin...
 
 ```ts
 // vite.config.ts
-import variants from 'tailwind-variant-selectors';
+import variants from 'tailwind-variant-selectors/vite';
 
 export default defineConfig({
   plugins: [variants(), tailwindcss()]
