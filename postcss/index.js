@@ -53,19 +53,17 @@ const plugin = ({ files = [] } = {}) => {
   return {
     postcssPlugin: 'postcss-tailwind-variant-selectors',
     Rule(rule) {
-      if (!rule.selector) {
+      if (!rule.selector || !VARIANT_SELECTOR_PATTERN.test(rule.selector)) {
         return;
       }
-      const selector = rule.selector.replaceAll(
-        RegExp(VARIANT_SELECTOR_PATTERN, 'gi'),
-        (matched, variant) => {
-          if (!variants.has(variant)) {
-            rule.error(`No corresponding variant definition found for ${variant}.`);
-            return matched;
-          }
-          return format_selectors(variants.get(variant));
+      const selector = rule.selector.replace(VARIANT_SELECTOR_PATTERN, (matched, variant) => {
+        if (!variants.has(variant)) {
+          rule.error(`No corresponding variant definition found for ${variant}.`);
+          return matched;
         }
-      );
+        return format_selectors(variants.get(variant));
+      });
+      console.log(selector);
       rule.replaceWith(rule.clone({ selector }));
     }
   };

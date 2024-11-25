@@ -1,7 +1,7 @@
 import { postcssTape } from '@csstools/postcss-tape';
-import postcssPlugin from '../postcss/index.js';
+import pp from '../postcss/index.js';
 
-postcssTape(postcssPlugin, {
+postcssTape(pp, {
   skipPackageNameCheck: true
 })({
   index: {
