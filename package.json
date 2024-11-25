@@ -19,7 +19,7 @@
 		"test:rewrite": "REWRITE_EXPECTS=true node --test",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"emit-types": "tsc postcss/index.js vite/index.js --declaration --allowJs --emitDeclarationOnly --lib esnext"
+		"emit-types": "tsc postcss/index.js vite/index.js --skipLibCheck --declaration --allowJs --emitDeclarationOnly --lib esnext"
 	},
 	"author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
 	"license": "MIT",
@@ -43,6 +43,7 @@
 	"devDependencies": {
 		"@csstools/postcss-tape": "^5.0.0",
 		"@tailwindcss/postcss": "4.0.0-beta.2",
+		"@types/node": "^22.9.3",
 		"eslint": "^9.15.0",
 		"eslint-config-prettier": "^9.1.0",
 		"postcss": "^8.4.49",
