@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`plugin build output > parses @variant rules and transforms :variant() selectors 1`] = `
+
+@layer components {
+  .valid {
+    color: black;
+    &:hover {
+      color: red;
+    }
+    &::after {
+      color: pink;
+    }
+  }
+}
+
+`;

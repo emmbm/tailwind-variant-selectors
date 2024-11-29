@@ -1,20 +1,18 @@
 import { readFileSync } from 'fs';
 import { dirname, join, resolve } from 'path';
+import { Plugin } from 'vite';
 import {
   CSS_ENTRY_PATTERN,
   CSS_FILE_PATTERN,
   CSS_IMPORT_PATTERN,
-  format_selectors,
-  unamp,
-  VARIANT_ATRULE_PATTERN,
   VARIANT_SELECTOR_PATTERN
-} from '../common/index.js';
+} from '../common/constants';
+import { createVariantsSelectors } from '../common/parse';
 
 /**
  * Use your custom tailwind variants as selectors inside css files without relying on the `@apply`
  * syntax.
  *
- * @returns {import('vite').Plugin[]}
  * @example
  *   ```css
  *   ⁣@variant hocus (&:hover, &:focus);
@@ -28,36 +26,14 @@ import {
  *   }
  */
 export default function plugin() {
-  /**
-   * @type {Map<string, string>}
-   */
-  const sources = new Map();
+  const sources = new Map<string, string>();
+  const variants = createVariantsSelectors();
 
-  /**
-   * @type {Map<string, string>}
-   */
-  const variants = new Map();
-
-  /**
-   * @param {string} id
-   * @param {string} code
-   */
-  function walk_variant_atrules(id, code) {
+  function walk(id: string, code: string) {
     const root = dirname(resolve(id));
     if (!sources.has(id) || sources.get(id) !== code) {
-      let sourced = false;
-      code.matchAll(RegExp(VARIANT_ATRULE_PATTERN, 'gi')).forEach((match) => {
-        if (!match.groups?.name || !match.groups?.selectors) {
-          return;
-        }
-        if (variants.has(match.groups.name)) {
-          console.warn(`Variant definition already found for ${match.groups.name}`);
-          return;
-        }
-        variants.set(match.groups.name, unamp(match.groups.selectors));
-        sourced = true;
-      });
-      if (sourced) {
+      const matched = variants.parse(code);
+      if (matched) {
         sources.set(id, code);
       }
     }
@@ -73,7 +49,7 @@ export default function plugin() {
       if (CSS_FILE_PATTERN.test(file)) {
         const path = resolve(join(root, file));
         const imported = readFileSync(path, 'utf-8');
-        walk_variant_atrules(file, imported);
+        walk(file, imported);
       }
     });
   }
@@ -83,12 +59,12 @@ export default function plugin() {
       name: 'vite-plugin-tailwind-variants-atrules',
       enforce: 'pre',
       buildStart() {
-        variants.clear();
+        variants.selectors.clear();
         sources.clear();
       },
       transform(code, id) {
         if (CSS_ENTRY_PATTERN.test(id)) {
-          walk_variant_atrules(id, code);
+          walk(id, code);
         }
       }
     },
@@ -97,14 +73,15 @@ export default function plugin() {
       transform(code, id) {
         if (CSS_FILE_PATTERN.test(id)) {
           return code.replace(RegExp(VARIANT_SELECTOR_PATTERN, 'gi'), (matched, variant) => {
-            if (!variants.has(variant)) {
+            const existing = variants.selectors.get(variant);
+            if (!existing) {
               console.warn(`No corresponding variant definition found for ${matched}.`);
               return matched;
             }
-            return format_selectors(variants.get(variant));
+            return existing;
           });
         }
       }
     }
-  ];
+  ] satisfies Plugin[];
 }

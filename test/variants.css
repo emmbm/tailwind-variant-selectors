@@ -1,0 +1,7 @@
+@variant singlepseudoclass (&:hover);
+@variant multipseudoclass (&:hover, &:focus);
+@variant singleclass (&.foo);
+@variant multiclass (&.foo, &.bar, &.baz);
+@variant singlepseudoelement (&::after);
+@variant multipseudoelement (&::after, &::before);
+@variant multimixed (&::after, &.foo);

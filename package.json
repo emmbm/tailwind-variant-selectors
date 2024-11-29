@@ -1,79 +1,84 @@
 {
-	"name": "tailwind-variant-selectors",
-	"version": "0.0.0-development",
-	"type": "module",
-	"description": "Use your Tailwind CSS custom variants in CSS.",
-	"keywords": [
-		"postcss",
-		"vite",
-		"css",
-		"postcss-plugin",
-		"vite-plugin",
-		"tailwind",
-		"tailwindcss",
-		"variants",
-		"custom-selectors"
-	],
-	"scripts": {
-		"test": "node --test",
-		"test:rewrite": "REWRITE_EXPECTS=true node --test",
-		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"emit-types": "tsc postcss/index.js vite/index.js --skipLibCheck --declaration --allowJs --emitDeclarationOnly --lib esnext"
-	},
-	"author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
-	"license": "MIT",
-	"repository": "emmbm/tailwind-variant-selectors",
-	"engines": {
-		"node": ">=18.0.0"
-	},
-	"peerDependencies": {
-		"postcss": "^8.4.27",
-		"tailwindcss": "^4.0.0",
-		"vite": ">=4.x"
-	},
-	"peerDependenciesMeta": {
-		"postcss": {
-			"optional": true
-		},
-		"vite": {
-			"optional": true
-		}
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "^5.0.0",
-		"@tailwindcss/postcss": "4.0.0-beta.2",
-		"@types/node": "^22.9.3",
-		"eslint": "^9.15.0",
-		"eslint-config-prettier": "^9.1.0",
-		"postcss": "^8.4.49",
-		"prettier": "^3.3.3",
-		"prettier-plugin-jsdoc": "^1.3.0",
-		"prettier-plugin-tailwindcss": "^0.6.9",
-		"semantic-release": "^24.2.0",
-		"tailwindcss": "4.0.0-beta.2",
-		"typescript": "^5.7.2",
-		"vite": "^5.4.11",
-		"vitest": "^2.1.5"
-	},
-	"files": [
-		"README.md",
-		"common/index.js",
-		"common/index.d.ts",
-		"postcss/index.js",
-		"postcss/index.d.ts",
-		"vite/index.js",
-		"vite/index.d.ts"
-	],
-	"exports": {
-		"./package.json": "./package.json",
-		"./postcss": {
-			"import": "./postcss/index.js",
-			"types": "./postcss/index.d.ts"
-		},
-		"./vite": {
-			"import": "./vite/index.js",
-			"types": "./vite/index.d.ts"
-		}
-	}
+  "name": "tailwind-variant-selectors",
+  "version": "0.0.0-development",
+  "type": "module",
+  "description": "Use your Tailwind CSS custom variants in CSS.",
+  "keywords": [
+    "postcss",
+    "vite",
+    "css",
+    "plugin",
+    "tailwind",
+    "variant",
+    "custom-variant",
+    "selectors",
+    "custom-selectors"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "test": "vitest",
+    "test:update": "vitest -u",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "build": "npm run lint && npm run format && tsc"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "author": "Emmanuel Beaudry Marchand <emmbema@gmail.com>",
+  "license": "MIT",
+  "repository": "emmbm/tailwind-variant-selectors",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.27",
+    "tailwindcss": "^4.0.0",
+    "vite": ">=4"
+  },
+  "peerDependenciesMeta": {
+    "postcss": {
+      "optional": true
+    },
+    "vite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.0.0-beta.3",
+    "@tailwindcss/vite": "4.0.0-beta.3",
+    "@types/node": "^22.10.1",
+    "@vitest/ui": "^2.1.6",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.12.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.1",
+    "prettier-plugin-jsdoc": "^1.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "semantic-release": "^24.2.0",
+    "tailwindcss": "4.0.0-beta.3",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.6"
+  },
+  "files": [
+    "README.md",
+    "package.json",
+    "dist"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./postcss": {
+      "import": "./dist/postcss/index.js",
+      "types": "./dist/postcss/index.d.ts"
+    },
+    "./vite": {
+      "import": "./dist/vite/index.js",
+      "types": "./dist/vite/index.d.ts"
+    }
+  }
 }

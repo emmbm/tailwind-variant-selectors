@@ -1,23 +1,26 @@
 import js from '@eslint/js';
-import prettier from 'eslint-config-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
+import ts from 'typescript-eslint';
 
 /**
  * @type {import('eslint').Linter.Config[]}
  */
-export default [
+export default ts.config([
   js.configs.recommended,
-  prettier,
+  ...ts.configs.strict,
+  ...ts.configs.stylistic,
+  eslintConfigPrettier,
+  eslintConfigPrettier,
   {
+    ignores: ['dist/'],
     languageOptions: {
       globals: {
-        ...globals.browser,
-        ...globals.node
+        ...globals.node,
+        ...globals.browser
       }
     },
-    ignores: ['dist/'],
     rules: {
-      'import/no-duplicates': 'error',
       curly: ['error', 'all'],
       '@typescript-eslint/no-unused-vars': [
         'error',
@@ -25,4 +28,4 @@ export default [
       ]
     }
   }
-];
+]);
