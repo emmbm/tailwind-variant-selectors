@@ -29,8 +29,10 @@ Then either use the PostCSS plugin...
 
 export default {
   plugins: {
-    '@tailwindcss/postcss': {},
-    'tailwind-variant-selectors/postcss': { files: ['./src/styles/variants.css'] }
+    'tailwind-variant-selectors/postcss': {
+      files: ['./src/styles/variants.css']
+    }
+    //...
   }
 };
 ```
@@ -43,7 +45,10 @@ Or the Vite plugin...
 import variants from 'tailwind-variant-selectors/vite';
 
 export default defineConfig({
-  plugins: [variants(), tailwindcss()]
+  plugins: [
+    variants(), // Place before tailwind
+    tailwindcss()
+  ]
 });
 ```
 
