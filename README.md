@@ -2,7 +2,7 @@
 
 Maybe cursed 🤮 maybe blessed 🤩, easily use your custom Tailwind CSS `@variant`s in CSS. Useful to
 maintain consistency across inline class variants and custom `@component`s or global styles without
-relying on `@apply`-ridden stylesheets for the latter.
+relying on `@apply`-ridden stylesheets.
 
 ```css
 @variant hocus (&:hover, &:focus);
