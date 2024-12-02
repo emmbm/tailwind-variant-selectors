@@ -7,9 +7,11 @@
     "target": "ESNext",
     "strict": true,
     "outDir": "dist",
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "declarationMap": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "module": "NodeNext",
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"]
 }

@@ -1,4 +1,4 @@
-import { VARIANT_ATRULE_PATTERN } from './constants';
+import { VARIANT_ATRULE_PATTERN } from './constants.js';
 
 function deamp(selector: string) {
   const trimmed = selector.trim();

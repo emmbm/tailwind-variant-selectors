@@ -6,8 +6,8 @@ import {
   CSS_FILE_PATTERN,
   CSS_IMPORT_PATTERN,
   VARIANT_SELECTOR_PATTERN
-} from '../common/constants';
-import { createVariantsSelectors } from '../common/parse';
+} from '../common/constants.js';
+import { createVariantsSelectors } from '../common/parse.js';
 
 /**
  * Use your custom tailwind variants as selectors inside css files without relying on the `@apply`
