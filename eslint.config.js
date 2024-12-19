@@ -11,7 +11,6 @@ export default ts.config([
   ...ts.configs.strict,
   ...ts.configs.stylistic,
   eslintConfigPrettier,
-  eslintConfigPrettier,
   {
     ignores: ['dist/'],
     languageOptions: {
