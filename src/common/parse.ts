@@ -39,6 +39,6 @@ export function createVariantsSelectors() {
 
   return {
     selectors,
-    parse
+    parse,
   };
 }

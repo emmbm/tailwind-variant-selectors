@@ -30,10 +30,10 @@ Then either use the PostCSS plugin...
 export default {
   plugins: {
     'tailwind-variant-selectors/postcss': {
-      files: ['./src/styles/variants.css']
-    }
+      files: ['./src/styles/variants.css'],
+    },
     //...
-  }
+  },
 };
 ```
 
@@ -47,8 +47,8 @@ import variants from 'tailwind-variant-selectors/vite';
 export default defineConfig({
   plugins: [
     variants(), // Place before tailwind
-    tailwindcss()
-  ]
+    tailwindcss(),
+  ],
 });
 ```
 

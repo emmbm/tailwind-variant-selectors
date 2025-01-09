@@ -18,5 +18,5 @@ expect.addSnapshotSerializer({
   },
   test(val) {
     return typeof val === 'string';
-  }
+  },
 });

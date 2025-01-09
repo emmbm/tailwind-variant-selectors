@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { PluginCreator } from 'postcss';
+import { type PluginCreator } from 'postcss';
 import { VARIANT_SELECTOR_PATTERN } from '../common/constants.js';
 import { createVariantsSelectors } from '../common/parse.js';
 
@@ -38,7 +38,7 @@ const plugin: PluginCreator<{ files?: string[] }> = ({ files = [] } = {}) => {
         if (!existing) {
           rule.warn(
             result,
-            `No corresponding variant definition found for ${variant} (used at ${rule}).`
+            `No corresponding variant definition found for ${variant} (used at ${rule}).`,
           );
           return matched;
         }
@@ -47,7 +47,7 @@ const plugin: PluginCreator<{ files?: string[] }> = ({ files = [] } = {}) => {
       if (selector !== rule.selector) {
         rule.replaceWith(rule.clone({ selector }));
       }
-    }
+    },
   };
 };
 

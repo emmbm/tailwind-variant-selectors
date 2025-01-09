@@ -1,11 +1,11 @@
 import { readFileSync } from 'fs';
 import { dirname, join, resolve } from 'path';
-import { Plugin } from 'vite';
+import { type Plugin } from 'vite';
 import {
   CSS_ENTRY_PATTERN,
   CSS_FILE_PATTERN,
   CSS_IMPORT_PATTERN,
-  VARIANT_SELECTOR_PATTERN
+  VARIANT_SELECTOR_PATTERN,
 } from '../common/constants.js';
 import { createVariantsSelectors } from '../common/parse.js';
 
@@ -66,7 +66,7 @@ export default function plugin() {
         if (CSS_ENTRY_PATTERN.test(id)) {
           walk(id, code);
         }
-      }
+      },
     },
     {
       name: 'vite-plugin-tailwind-variants-css-selectors',
@@ -81,7 +81,7 @@ export default function plugin() {
             return existing;
           });
         }
-      }
-    }
+      },
+    },
   ] satisfies Plugin[];
 }
