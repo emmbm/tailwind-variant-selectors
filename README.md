@@ -22,7 +22,7 @@ relying on `@apply`-ridden stylesheets.
 pnpm add -D tailwind-variant-selectors
 ```
 
-Then either use the PostCSS plugin...
+Then either use the PostCSS plugin:
 
 ```js
 // postcss.config.js
@@ -37,7 +37,7 @@ export default {
 };
 ```
 
-Or the Vite plugin...
+Or the Vite plugin:
 
 ```ts
 // vite.config.ts
