@@ -6,4 +6,4 @@ export const CSS_IMPORT_PATTERN = /@import\s+('|")(?<file>[^("|')]*)('|")/;
 
 export const VARIANT_ATRULE_PATTERN = /@variant\s+(?<name>.*[^\s])\s+\((?<selectors>.*[^;|\s])\)/;
 
-export const VARIANT_SELECTOR_PATTERN = /:variant\((.*[^)])\)/;
+export const VARIANT_SELECTOR_PATTERN = /:--([^\s]*)/;
