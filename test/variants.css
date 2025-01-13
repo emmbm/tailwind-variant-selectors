@@ -5,3 +5,4 @@
 @variant singlepseudoelement (&::after);
 @variant multipseudoelement (&::after, &::before);
 @variant multimixed (&::after, &.foo);
+@variant mediaquery (@media (min-width: 600px));
