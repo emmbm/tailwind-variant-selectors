@@ -10,11 +10,14 @@ relying on `@apply`-ridden stylesheets.
 .btn {
   color: var(--color-input);
 
-  &:variant(hocus) {
+  &:--hocus {
     color: var(--color-input-accent);
   }
 }
 ```
+
+> [!NOTE]  
+> Previous version of this package used a custom syntax (`:variant()`) which has since been abandonned to instead follow the [CSS Extensions specification for custom selectors](https://drafts.csswg.org/css-extensions/#custom-selectors).
 
 ## Usage
 
@@ -73,19 +76,15 @@ Ex.:
 @variant bar (&::after, .hi-mom);
 
 /* This will be transformed into a matchable selector. */
-.btn:variant(foo) /* .btn::after. */ {
+.btn:--foo /* .btn::after. */ {
   /* ... */
 }
 
 /* This will be transformed into an unmatchable selector. */
-.btn:variant(bar) /* .btn:is(::after, .hi-mom) */ {
+.btn:--bar /* .btn:is(::after, .hi-mom) */ {
   /* ... */
 }
 ```
-
-### Media queries and other at-rules
-
-Not supported.
 
 ### Dynamic variants
 
