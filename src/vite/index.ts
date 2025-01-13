@@ -56,7 +56,7 @@ export default function plugin() {
 
   return [
     {
-      name: 'vite-plugin-tailwind-variants-atrules',
+      name: 'vite-plugin-tailwind-variant-selectors-pre',
       enforce: 'pre',
       buildStart() {
         variants.selectors.clear();
@@ -69,7 +69,7 @@ export default function plugin() {
       },
     },
     {
-      name: 'vite-plugin-tailwind-variants-css-selectors',
+      name: 'vite-plugin-tailwind-variant-selectors',
       transform(code, id) {
         if (CSS_FILE_PATTERN.test(id)) {
           return code.replace(RegExp(VARIANT_SELECTOR_PATTERN, 'gi'), (matched, variant) => {
