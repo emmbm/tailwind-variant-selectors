@@ -4,11 +4,11 @@
   .valid {
     color: black;
 
-    &:variant(singlepseudoclass) {
+    &:--singlepseudoclass {
       color: red;
     }
 
-    &:variant(singlepseudoelement) {
+    &:--singlepseudoelement {
       color: pink;
     }
   }
