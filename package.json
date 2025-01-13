@@ -42,11 +42,6 @@
     "test": "vitest",
     "test:update": "vitest -u"
   },
-  "release": {
-    "branches": [
-      "main"
-    ]
-  },
   "devDependencies": {
     "@tailwindcss/postcss": "4.0.0-beta.3",
     "@tailwindcss/vite": "4.0.0-beta.3",
